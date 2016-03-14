@@ -30,9 +30,9 @@
 * Local MySQL Server (스키마 작성 후 필요한 샘플데이터는 구성하여 제공)
 * Apache/Tomcat
 * Spring
-* JDBC (혹은 MyBatis)
+* MyBatis
 * jQuery 
-* Bootstrap 사용 가능
+* Bootstrap 사용
 * iframe Player 사용
 * 로그인 개발 시 카카오 서비스 API 이용 (kakao.js)
 
@@ -40,8 +40,3 @@
 * 상시 코드리뷰 (on Github)
 * 개발 완료 후 최종 시연 및 결과 공유 
 * 진행상황에 따라 스펙 축소 / 혹은 연속재생, 검색 등 별도의 기능 추가 예정. 
-
-## 그라운드 룰
-* 야근 금지
-* 주말 출근 절대 금지
-* 주말 커밋 금지
