@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="kr">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="/mlpot/resources/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<link href="/mlpot/resources/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="/mlpot/resources/css/common.css" rel="stylesheet" type="text/css"/>
+<link href="/mlpot/resources/css/firstPage.css" rel="stylesheet" type="text/css"/>
+
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+<title>My Little Tvpot</title>
+</head>
+
+<body>
+<header class="header-wrapper">
+	<div class="container">
+		<div class="dropdown pull-left">
+			<a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> <b class="caret"></b></a>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+				#if(!$userNickname)
+					<li><a href="" id="login" tableindex="-1">로그인</a></li>
+				#else
+					<li><a href="" tableindex="-1">${userNickname}</a></li>
+				#end
+					<li><a href="" id="myPot" tableindex="-1">마이팟 </a></li>
+				#if($userNickname)
+					<li><a href="" id="logout" tableindex="-1">로그아웃 </a></li>
+				#end
+			</ul>
+			<strong>My Little Tvpot</strong>
+		</div>	##/dropdown
+	</div>	##/container
+</header>
+
+<div class="container-fluid">
+	##set ($string = "0")
+	<div id="clipList" class="container">
+		<ul id="innerClipList" class="list-unstyled clips">
+			#foreach($item in $clipList)
+				#if($velocityCount>20)
+					#break
+				#end
+				#if($velocityCount%5==1)
+					<div class="container">
+					<div class="row firstPage">
+				#end
+				
+				<li>
+					<div class="wrap_thumb thumbnail">
+						<a href="clipView.do?clipId=$item.id" title="$item.title"><img src="$item.thumbUrl" width="187px" height="105px"></a>
+						<div class="caption">
+							<p class="title">$item.title</p>
+							<span class="img_sample num_txt"></span><p class="numOfPlay">$item.numOfPlay</p><p class="numOfLike"><i class="fa fa-thumbs-o-up"></i> $item.numOfLike</p>
+						</div>	##/caption
+					</div>	##/wrap_thumb thumbnail
+				</li>
+				
+				#if($velocityCount%5==0)
+					</div>	##/row
+					</div>	##/container
+				#end				
+			#end
+		</ul>
+	</div> ##/clipList 
+</div>	##/contatiner-fluid
+<button class="btn btn-info" id="moreClips">더보기</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" ></script>
+<script src="/mlpot/resources/js/bootstrap.min.js"></script>
+<script src="/mlpot/resources/js/common.js"></script>
+<script src="/mlpot/resources/js/clipView.js"></script>
+</body>
+
+</html>

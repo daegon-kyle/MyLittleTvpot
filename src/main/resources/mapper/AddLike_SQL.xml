@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="test.sample.dao.AddLikeDAO">
+	<select id="checkLike" parameterType="hashmap" resultType="int">
+		<![CDATA[
+			SELECT COUNT(*)
+			FROM MyLittlePot.like
+			WHERE user_id = #{userId} AND clip_id = #{clipId};
+		]]>
+	</select>
+	<update id="addLike" parameterType="String">
+		<![CDATA[
+			UPDATE MyLittlePot.clip 
+			SET numOfLike = numOfLike+1 
+			WHERE id=#{clipId};
+		]]>
+	</update>
+	<insert id="addUserClip" parameterType="hashmap">
+		<![CDATA[
+			INSERT INTO MyLittlePot.like (user_id, clip_id)
+			VALUES	(#{userId}, #{clipId})
+		]]>
+	</insert>
+</mapper>

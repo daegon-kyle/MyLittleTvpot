@@ -1,0 +1,27 @@
+* Spring Project 만들기 *
+
+1. Eclipse 구동
+
+2. New > Other > Spring > Spring Legacy Project를 선택 (블로그에서는 Spring Project를 선택하라고 하는데, 현재는 존재하지 않는다. Spring Starter Project는 기존부터 존재)
+
+3. 프로젝트의 이름 입력 후, 하단에 Spring MVC Project를 선택
+
+4. package 입력 후, 프로젝트 생성하기
+
+5. 자동으로 Spring 프로젝트에 필요한 라이브러리를 자동으로 다운 받기 시작
+
+6. 다운로드 완료 후, 생성된 프로젝트에 에러가 없는지 확인
+
+7. 프로젝트 하단 > Java Resources > Libraries > Maven Dependencies에서 다운 받은 라이브러리 확인(이전에 maven내 repository 폴더를 확인하면 라이브러리 다운된 것을 확인 가능)
+
+8. 새로운 라이브러리를 추가하고 싶은 경우, 아랫 부분에 있는 pom.xml을 선택
+
+9. pom.xml의 하단 부분에 pom.xml을 클릭
+
+10. <dependency> </dependency> 안에 라이브러리를 입력하여 새로운 라이브러리를 추가
+
+11. Tomcat 설정 후(해당하는 스프링 프로젝트를 첨부), 서버를 실행
+
+12. http://localhost:8080/mlpot/에 접속 -> 404 Error 발생 -> Tomcat Server 더블클릭 -> 하단에 modules 클릭 -> 올바르지 않은 path 설정되어 있음 -> 정확한 path로 변경 (일반적으로 프로젝트명)
+
+13. Hello World라는 표시와 서버시간이 표시

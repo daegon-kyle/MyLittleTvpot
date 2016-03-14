@@ -1,0 +1,23 @@
+* Maven 설치 및 설정 *
+
+1. http://maven.apache.org/에서 Maven 3.3.9를 다운로드 (Maven은 라이브러리 사용하겠다고 적으면 인터넷에서 필요한 라이브러리를 자동으로 추가해주는 역할을 함)
+
+2. 다운 받은 폴더에서 /apache-maven-3.3.9/conf/setting.xml을 실행
+
+3. 중간에 주석처리된 localRepository의 주석을 해제
+
+4. apache-maven-3.3.9 폴더 밑에 repository 폴더를 생성 (repository폴더에 라이브러리를 추가)
+
+5. <localRepository>/path/to/local/repo</localRepository> 부분에서 방금 생성한 repository 폴더로 변경해준다.
+
+6. Eclipse로 이동
+
+7. Preferences > Maven > User Settings를 선택
+
+8. Browse를 클릭하여 maven의 setting.xml을 2번에서 선택한 setting.xml로 변경
+
+9. 자동으로 아래 Local Repository가 변경된 것을 확인
+
+10. 컴파일된 결과물을 원하지 않는 경우, Preferences > Team > Ignored Resources를 선택
+
+11. Add Pattern > "*/target/*" 을 추가

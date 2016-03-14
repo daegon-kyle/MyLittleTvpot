@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="test.sample.dao.MyPotDAO">
+	<select id="showMyPotInfo" parameterType="string" resultType="hashmap">
+		<![CDATA[
+			SELECT *
+			FROM MyLittlePot.clip
+			WHERE id IN (SELECT clip_id
+						FROM MyLittlePot.favorite
+						WHERE user_id=#{userId});;
+		]]>
+	</select>
+	<insert id="addClipToMyPot" parameterType="test.sample.model.Favorite">
+		<![CDATA[
+			INSERT INTO MyLittlePot.favorite (user_id, clip_id)
+			VALUES (#{user_id}, #{clip_id});
+		]]>
+	</insert>
+	<delete id="delAllClips" parameterType="string">
+		<![CDATA[
+			DELETE FROM MyLittlePot.favorite
+			WHERE user_id = #{userId};
+		]]>
+	</delete>
+	<select id="checkExistenceOfFavorite" parameterType="test.sample.model.Favorite" resultType="int">
+		<![CDATA[
+			SELECT COUNT(*)
+			FROM favorite
+			WHERE user_id = #{user_id} AND clip_id = #{clip_id};
+		]]>
+	</select>
+</mapper>

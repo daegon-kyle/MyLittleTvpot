@@ -1,0 +1,13 @@
+* Spring Tool Suite 설치 *
+
+1. Eclipse 실행
+
+2. Help > Eclipse Marketplace 선택
+
+3. STS 검색
+
+4. 버젼에 맞는 STS를 다운받아야 하지만, 현재 가지고 있는 Eclipse 버젼에 일치하는 STS를 찾지 못해 최신 버젼으로 설치 (Spring Tool Suite (STS) for Eclipse 3.7.2.RELEASE)
+
+5. 라이선스 동의 후, 재시작
+
+6. File > New > Others를 보고 Spring이 있는지 체크

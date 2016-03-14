@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+
+#kakaoImg {
+	width: 550px;
+	height: 360px;
+	position: relative;
+}
+.loginInner {
+	margin-left: 15%;
+	margin-right: 15%;
+}

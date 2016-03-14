@@ -1,0 +1,29 @@
+* MySQL 설치 방법 *
+
+1. http://dev.mysql.com/downloads/mysql 에서Mac용 다운로드 (Mac OS X 10.10 dmg)
+
+2. 설치 후, 시스템 환경설정으로 이동
+
+3. 하단에 위치한 MySQL 클릭하여MySQL 서버 작동
+
+4. terminal로 이동
+
+5. cd /usr/local/mysql/bin으로 이동
+
+6. 'mysql'만 입력하였을 때, 작동하도록 profile에서 PATH 설정하였지만 작동 안됨
+
+7. ./mysql로만 접근 시도 -> "ERROR 1045 (28000): Access denied for user 'kakao'@'localhost' (using password: NO)"
+
+8. 웹 서핑 후, ./mysql -u root -p로이동
+
+9. use mysql;  update user set password=password(‘1234’) where user=‘root’;
+flush privileges;  exit; ---> root의 비밀번호 1234로 설정 완료
+
+10. 기본 언어 코드를 UTF-8로 변경 (한글 안 깨지게 하기 위해)
+/etc/my.cnf 파일에 다음 내용을 추가 -> [client] default-character-set=utf8
+[mysqld] character-set-server=utf8 collation-server=utf8_general_ci
+[mysql] default-character-set=utf8
+
+11. mysql 접속 후, SHOW DATABASES; 입력 후 출력결과 확인
+
+12. MySQL 설치 완료.

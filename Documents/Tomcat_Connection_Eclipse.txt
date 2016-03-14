@@ -1,0 +1,13 @@
+* Tomcat Eclipse 연결 *
+
+1. Eclipse 구동 (터미널에서 Tomcat 구동하였다면, 멈춘다.)
+
+2. Preferences -> Runtime Environments -> Add -> Apache Tomcat v8.0 선택 -> 경로는 /Library/Tomcat 입력 (이전 Tomcat 설치하였을 때, 링크 생성 하였기 때문에 이전 상세한 경로는 설정할 필요가 없음) (JRE는 default JRE 사용) (Java 8.0 이상)
+
+3. Project 생성시, Dynamic Web Project 실행
+
+4. Target runtime을 Apache Tomcat v8.0으로 설정
+
+5. jsp 또는 html 파일 생성 후, run 실행 ("Hello World!" 화면에 넣기)
+
+6. 브라우저에서 Hello World 확인

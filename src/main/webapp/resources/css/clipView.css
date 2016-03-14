@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+
+.clipPage {
+	margin-left: 12px;
+}
+.inner {
+	width: 640px;
+	margin-left: 27.5%;
+	margin-right: 20%;
+}
+div.commentTab1 {
+	margin-left: 7px;
+}
+.tab-content {
+	width: 640px;
+}
+.tab {
+	width: 640px;
+	margin-bottom: 10px;
+}
+#moreClipsInClipView {
+	width: 50%;
+	margin: 0 25% 10px 25%;
+	font-weight: bold;
+}
+.name {
+	color: #337AB7;
+}
+.userImage {
+	width: 64px;
+	height: 64px;
+}
+.right {
+	margin-left: 5px;
+	width: 49.1406px;
+	height: 30px;
+}
+#numOfPlay {
+	font-size: 5px;
+	margin-right: 5px;
+	height: 30px;
+	width: 65px;
+}

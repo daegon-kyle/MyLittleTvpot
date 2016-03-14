@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="kr">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="/mlpot/resources/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<link href="/mlpot/resources/css/common.css" rel="stylesheet" type="text/css"/>
+<link href="/mlpot/resources/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="/mlpot/resources/css/clipView.css" rel="stylesheet" type="text/css"/>
+
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+<title>My Little Tvpot</title>
+</head>
+
+<body>
+<header class="header-wrapper">
+	<div class="container">
+		<div class="dropdown pull-left">
+			<a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> <b class="caret"></b></a>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+				#if(!$userNickname)
+					<li><a href="" id="loginInClipView" tableindex="-1">로그인</a></li>
+				#else
+					<li><a href="" tableindex="-1">${userNickname}</a></li>
+				#end
+					<li><a href="" id="myPot" tableindex="-1">마이팟 </a></li>
+				#if($userNickname)
+					<li><a href="" id="logout" tableindex="-1">로그아웃 </a></li>
+				#end
+			</ul>
+			<strong>My Little Tvpot</strong>
+		</div>	##/dropdown
+	</div>	##/container
+</header>
+
+##set ($string = "0")
+	
+<div class="inner">
+	<iframe title="Main Player" id="iPlayer" width="640" height="360" 
+	src="http://vfarm.tv.kakao.com/controller/video/viewer/Video.html? vid=${clip.vid}&play_loc=kakaotv" frameborder="0" scrolling="no" allowfullscreen>
+    </iframe>
+	
+	<ul class="nav nav-tabs tab">
+		<li class="active"><a href="#tab1" data-toggle="tab">댓글</a></li>
+    	<li><a href='#tab2' data-toggle="tab">클립 목록</a></li>
+    	
+    	#if($isExistentInMyPot == true)
+    		<button id="isExistent" class="btn btn-warning btn-sm pull-right right" data-isExistentInMyPot="true"><i class="fa fa-star"></i></button>
+    	#else
+    		<button id="isExistent" class="btn btn-warning btn-sm pull-right right" data-isExistentInMyPot="false"><i class="fa fa-star-o"></i></button>
+    	#end
+    	<button id="addClip" class="btn btn-info btn-sm pull-right right"><i class="fa fa-plus"></i></button>
+    	<button id="like" class="btn btn-success btn-sm pull-right" value="${clip.id}" data-numOfLike="${clip.numOfLike}" data-numOfPlay="${clip.numOfPlay}"><i class="fa fa-thumbs-o-up"></i> ${clip.numOfLike}</button>
+    	<button id="numOfPlay" class="btn btn-primary btn-md pull-right "><i class="fa fa-play"></i> $clip.numOfPlay</button>
+	</ul>
+	
+	<div class="tab-content">
+		<div id="tab1" class="tab-pane active fade in commentTab1">
+				<ul id="commentListArea" class="list-styled media-list" data-clipId=${clip.id}>
+					<div class="form-group controls-row commentArea" id="form-comment">
+						<input class="form-control" type="text" id="comment" placeholder="댓글 작성 시 타인에 대한 배려와 책임을 담아주세요."/>
+						<button class="btn btn-sm" id="clip_id" value="${clip.id}" data-clipvid="${clip.vid}">등록</button>
+					</div>
+					#foreach($item in $commentList)
+						<li class="media" id="comment$item.id">
+							<a class="pull-left" href="#">
+								<img class="media-object userImage img-circle" src=$item.user_profile_image>
+							</a>
+							<div class="media-body">
+								<span class="name">$item.user_nickname</span>
+								<span class="date">$item.regDttm</span>
+								#if ($item.user_id == $userId)
+									<a href="#" class="delComment pull-right" data-commentId="$item.id" data-original-title="삭제"><i class="fa fa-times"></i></a>
+								#end
+								<p>$item.content</p>
+							</div>	##/media-body
+						</li>
+					#end
+				</ul>
+		</div>	##/tab1 tab-pane
+		
+		<div id="tab2" class="tab-pane fade">
+			<ul id="innerClipList" class="list-unstyled clips">
+				#foreach($item in $clipList)
+					#if($velocityCount>21)
+						#break
+					#end
+					#if($velocityCount%3==1)
+						##<div class="container">
+						<div class="row clipPage">
+					#end
+					
+					<li>
+						<div class="wrap_thumb thumbnail">
+							<a href="clipView.do?clipId=$item.id" title="$item.title"><img src="$item.thumbUrl" width="187px" height="105px"></a>
+							<div class="caption">
+								<p class="title">$item.title</p>
+								<span class="img_sample num_txt"></span><p class="numOfPlay">$item.numOfPlay</p><p class="numOfLike"><i class="fa fa-thumbs-o-up"></i> $item.numOfLike</p>
+							</div>	##/caption
+						</div>	##/wrap_thumb thumbnail
+					</li>
+					
+					#if($velocityCount%3==0)
+						</div>	##/row
+						##</div>	##/container
+					#end
+				#end
+			</ul>
+			<div class="center-block">
+			<button class="btn btn-info" id="moreClipsInClipView">더보기</button>
+			</div>	##/center-block
+		</div>	##/tab2 tab-pane
+	</div>	##/tab-content
+</div> ##/inner
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" ></script>
+<script src="/mlpot/resources/js/bootstrap.min.js"></script>
+<script src="/mlpot/resources/js/common.js"></script>
+<script src="/mlpot/resources/js/tab.js"></script>
+<script src="/mlpot/resources/js/clipView.js"></script>
+</body>
+
+</html>

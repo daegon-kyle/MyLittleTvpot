@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="test.sample.dao.CommentDAO">
+	<insert id="registerComment" parameterType="test.sample.model.Comment">
+		<![CDATA[
+			INSERT INTO MyLittlePot.comment (clip_id, user_id, user_nickname, user_profile_image, content, regDttm)
+			VALUES	(#{clip_id}, #{user_id}, #{user_nickname}, #{user_profile_image}, #{content}, #{regDttm});
+		]]>
+	</insert>
+	<select id="commentList" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT *
+			FROM MyLittlePot.comment
+			WHERE clip_id = #{clipId} AND availability=1;
+		]]>
+	</select>
+	<delete id="deleteComment" parameterType="string">
+		<![CDATA[
+			DELETE FROM MyLittlePot.comment
+			WHERE id=#{delCommentId};
+		]]>
+	</delete>
+	<update id="changeAvailOfComment" parameterType="string">
+		<![CDATA[
+			UPDATE MyLittlePot.comment 
+			SET availability=0
+			WHERE id=#{delCommentId};
+		]]>
+	</update>
+	<select id='commentAfterRegi' parameterType="test.sample.model.Comment" resultType="test.sample.model.Comment">
+		<![CDATA[
+			SELECT *
+			FROM comment
+			WHERE clip_id=#{clip_id}
+			ORDER BY id DESC
+			LIMIT 1;
+		]]>
+	</select>
+	<select id="getRealCommentOwnerId" parameterType="string" resultType="string">
+		<![CDATA[
+			SELECT user_id
+			FROM comment
+			WHERE id=#{delCommentId};
+		]]>
+	</select>
+</mapper>

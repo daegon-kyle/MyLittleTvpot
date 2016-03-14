@@ -1,0 +1,71 @@
+@CHARSET "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+* {
+	font-family: 'Open Sans', sans-serif;
+	padding: 0;
+	margin: 0;
+}
+html {
+	padding: 10px 0 0 0;
+	font-family: sans-serif;
+	font-size: 14px;
+}
+.header-wrapper {
+	margin-bottom: 70px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #EDEEEE;
+}
+.title {
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 190px;
+	text-overflow: ellipsis;
+	font-weight: bold;
+}
+.caption {
+	display: inline-block;
+	white-spcae: nowrap;
+	overflow: hidden;
+	width: 197px;
+	text-overflow: ellipsis;
+}
+.clips li {
+	float: left;
+	list-style: none;
+	overflow: hidden;
+}
+.numOfPlay {
+	color: gray;
+	font-size: 11px;
+	font-family: tahoma;
+}
+.img_sample {
+	display: block;
+	background-image: url(/mlpot/resources/img/bg.png);
+	background-repeat: no-repeat;
+}
+.num_txt {
+	display: block;
+	float: left;
+	width: 8px;
+	height: 10px;
+	margin: 3px 3px 0 0;
+	background-position: -20px 0;
+	font-size: 0;
+	line-height: 0;
+	text-indent: -9999px;
+}
+.numOfLike {
+	color: #8C9FFF;
+	font-size: 11px;
+	font-family: tahoma;
+}
+#clipList {
+	margin-left: 8%;
+	margin-right: 5%;
+}
+.firstPage {
+	margin-left: 3.5%;
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="test.sample.dao.ClipDAO">
+	<select id="selectOneClip" parameterType="String" resultType="test.sample.model.Clip">
+		<![CDATA[
+			SELECT * 
+			FROM MyLittlePot.clip 
+			WHERE id = #{clipId};
+		]]>
+	</select>
+	<select id="moreClipsInClipViewList" parameterType="int" resultType="hashmap">
+		<![CDATA[
+			SELECT *
+			FROM MyLittlePot.clip
+			LIMIT  #{firstClipId}, 21;
+		]]>
+	</select>
+	<select id="moreClipsList" parameterType="int" resultType="hashmap">
+		<![CDATA[
+			SELECT *
+			FROM MyLittlePot.clip
+			LIMIT  #{firstClipId}, 20;
+		]]>
+	</select>
+	<select id="selectClipList" resultType="hashmap">
+		<![CDATA[
+			SELECT * 
+			FROM MyLittlePot.clip
+		]]>
+	</select>
+	<update id="addNumOfPlay" parameterType="hashmap">
+		<![CDATA[
+			UPDATE MyLittlePot.clip
+			SET numOfPlay=#{numOfPlay}+1
+			WHERE id=#{clipId};
+		]]>
+	</update>
+</mapper>

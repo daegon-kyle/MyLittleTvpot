@@ -1,0 +1,23 @@
+* Tomcat 설치 방법 *
+
+1. Tomcat 8.0 tar.gz를 다운로드 (http://tomcat.apache.org/download-80.cgi _ Eclipse에서 9.0은 적용이 안됨 )
+
+2. 압축 해제
+
+3. terminal 실행 시킨 후, sudo mv ~/Downloads/apache-tomcat-8.0.30 /usr/local
+실행시켜 폴더 이동
+
+4. 최신버젼 쉽게 배포하기 위해 링크 걸기
+
+5. sudo ln -s /usr/local/apache-tomcat-8.0.30 /Library/Tomcat
+
+6. Tomcat 폴더의 접근 권한을 부여 sudo chown -R daumkakao  /Library/Tomcat
+
+7. 쉘에서 실행 권한을 부여 sudo chmod +x /Library/Tomcat/bin/*.sh
+
+8. Tomcat Start! /Library/Tomcat/bin/startup.sh
+
+9. 로컬에서 작동하는 지, 브라우저에서 체크하기 http://localhost:8080/
+-> tomcat 화면 확인
+
+10. Tomcat End! /Library/Tomcat/bin/shutdown.sh

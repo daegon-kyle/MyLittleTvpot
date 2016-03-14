@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="test.sample.dao.LoginDAO">
+	<select id="checkAvailId" parameterType="hashmap" resultType="int">
+		<![CDATA[
+			SELECT COUNT(*)
+			FROM MyLittlePot.user
+			WHERE id = #{userId};
+		]]>
+	</select>
+	<select id="saveUserInfo" parameterType="test.sample.model.User">
+		<![CDATA[
+			INSERT INTO MyLittlePot.user
+			VALUES (#{id}, #{nickname}, #{profile_image});
+		]]>
+	</select>
+</mapper>
