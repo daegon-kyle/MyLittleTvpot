@@ -37,8 +37,3 @@
 * iframe Player 사용
 * HTML5 / CSS3 / Velocity
 * 로그인 개발 시 카카오 서비스 API 이용 (kakao.js_OAuth 2.0)
-
-## 평가 계획
-* 상시 코드리뷰 (on Github)
-* 개발 완료 후 최종 시연 및 결과 공유 
-* 진행상황에 따라 스펙 축소 / 혹은 연속재생, 검색 등 별도의 기능 추가 예정. 
