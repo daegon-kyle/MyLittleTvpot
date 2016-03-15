@@ -31,10 +31,11 @@
 * Apache/Tomcat
 * Spring
 * MyBatis
-* jQuery 
+* Java
+* jQuery / JavaScript
 * Bootstrap 사용
 * iframe Player 사용
-* Velocity
+* HTML5 / CSS3 / Velocity
 * 로그인 개발 시 카카오 서비스 API 이용 (kakao.js_OAuth 2.0)
 
 ## 평가 계획
