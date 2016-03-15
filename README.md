@@ -26,7 +26,7 @@
   * 기본적인 레이아웃은 tv팟/카카오tv 를 참고한다.
 
 ## 개발환경
-* Git
+* GitHub
 * Local MySQL Server (스키마 작성 후 필요한 샘플데이터는 구성하여 제공)
 * Apache/Tomcat
 * Spring
@@ -34,7 +34,8 @@
 * jQuery 
 * Bootstrap 사용
 * iframe Player 사용
-* 로그인 개발 시 카카오 서비스 API 이용 (kakao.js)
+* Velocity
+* 로그인 개발 시 카카오 서비스 API 이용 (kakao.js_OAuth 2.0)
 
 ## 평가 계획
 * 상시 코드리뷰 (on Github)
